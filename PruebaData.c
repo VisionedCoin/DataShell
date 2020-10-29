@@ -35,13 +35,15 @@ if(archivo!=NULL)
 	if(feof(archivo))break;
 	if(strlen(linea)>0)
 	linea[strlen(linea)-1]='\0';
+
 	token = strtok_r(linea, ",", &saveptr);
 	array[i].num1=strtod(token, NULL);
-	token = strtok_r(linea, ",", &saveptr);
+	token = strtok_r(saveptr, ",", &saveptr);
 	array[i].num2=strtod(token, NULL);
-	token = strtok_r(linea, ",", &saveptr);
+	token = strtok_r(saveptr, ",", &saveptr);
 	array[i].num3=strtod(token, NULL);
 	i++;
+	saveptr=NULL;
 	}
 
 fclose(archivo);
