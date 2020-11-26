@@ -18,17 +18,7 @@
     #define EXTERN extern
 #endif
 
-typedef struct destruc{
-double num1;
-double num2;
-double num3;
-}Estructura;
 
-typedef struct destrucarray{
-double num1[3];
-double num2[3];
-double num3[3];
-}Estructuraarray;
 
 
 
