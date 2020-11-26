@@ -37,16 +37,16 @@
 
 typedef struct demovie{
 char nombre[30];
-int accion;
-int comedia;
-int romance;
-int terror;
-int ficcion;
-int drama;
-int historia;
-int documental;
-int arte;
-int animada;
+double accion;
+double comedia;
+double romance;
+double terror;
+double ficcion;
+double drama;
+double historia;
+double documental;
+double arte;
+double animada;
 char clasf[5];
 }param;
 
@@ -78,14 +78,14 @@ EXTERN int DataShell_leer_arrayofstruct(char nombre[], param array[]);
  *
  *    nombre (char []);
  *  nombre del archivo.
- *    matriz (int *[])
+ *    matriz (double *[])
  *  matriz de enteros de calificacion
  * @returns
  *  void.
 */
 
 
-EXTERN void DataShell_leer_matriz(char nombre[], int *matriz[], int fil, int col);
+EXTERN void DataShell_leer_matriz(char nombre[], double *matriz[], int fil, int col);
 
 #undef DataShell_IMPORT
 #undef EXTERN
