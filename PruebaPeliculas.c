@@ -18,15 +18,15 @@ bool animada;
 char clasf[5];
 }param;
 
-int files_leer_arrayofstruct(char nombre[], param array[]);
+int files_leer_arrayofstruct(char nombre[], param **array);
 int main()
 {
 int cant,i;
 char nombre[30];
-param movies[10];
+param *movies =NULL;
 printf("Ingrese csv: ");
 scanf("%s", nombre);
-cant=files_leer_arrayofstruct(nombre,movies);
+cant=files_leer_arrayofstruct(nombre,&movies);
 
 for (i=0;i<cant;i++)
 {
@@ -44,7 +44,7 @@ return 0;
 }
 
 
-int files_leer_arrayofstruct(char nombre[], param array[])
+int files_leer_arrayofstruct(char nombre[], param **array)
 {
         FILE *archivo=NULL;
         int i=0;
@@ -60,30 +60,31 @@ if(archivo!=NULL)
         if(strlen(linea)>0)
         linea[strlen(linea)-1]='\0';
 
+	(*array)=realloc((*array), sizeof((*array)) + sizeof(param));
         token = strtok_r(linea, ",", &saveptr);
-        strcpy(array[i].nombre, token);
+        strcpy(array[i]->nombre, token);
         token = strtok_r(saveptr, ",", &saveptr);
-        array[i].accion=strtod(token, NULL);
+        array[i]->accion=strtod(token, NULL);
         token = strtok_r(saveptr, ",", &saveptr);
-        array[i].comedia=strtod(token, NULL);
+        array[i]->comedia=strtod(token, NULL);
         token = strtok_r(saveptr, ",", &saveptr);
-        array[i].romance=strtod(token, NULL);
+        array[i]->romance=strtod(token, NULL);
         token = strtok_r(saveptr, ",", &saveptr);
-        array[i].terror=strtod(token, NULL);
+        array[i]->terror=strtod(token, NULL);
         token = strtok_r(saveptr, ",", &saveptr);
-        array[i].ficcion=strtod(token, NULL);
+        array[i]->ficcion=strtod(token, NULL);
 	token = strtok_r(saveptr, ",", &saveptr);
-        array[i].drama=strtod(token, NULL);
+        array[i]->drama=strtod(token, NULL);
         token = strtok_r(saveptr, ",", &saveptr);
-        array[i].historia=strtod(token, NULL);
+        array[i]->historia=strtod(token, NULL);
         token = strtok_r(saveptr, ",", &saveptr);
-        array[i].documental=strtod(token, NULL);
+        array[i]->documental=strtod(token, NULL);
         token = strtok_r(saveptr, ",", &saveptr);
-        array[i].arte=strtod(token, NULL);
+        array[i]->arte=strtod(token, NULL);
         token = strtok_r(saveptr, ",", &saveptr);
-        array[i].animada=strtod(token, NULL);
+        array[i]->animada=strtod(token, NULL);
         token = strtok_r(saveptr, ",", &saveptr);
-        strcpy(array[i].clasf, token);
+        strcpy(array[i]->clasf, token);
 
         i++;
         saveptr=NULL;
