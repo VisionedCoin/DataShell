@@ -14,7 +14,7 @@ void entrenar(){
     
 }
 
-double ProductPunto(demovie *Peli11, demovie *Peli2)
+double ProductPunto(demovie Peli11, demovie Peli2)
 {
     double producto1, producto2, producto3, Final;
     producto1=Peli1.accion*Peli2.accion+Peli1.comedia*Peli2.comedia+Peli1.romance*Peli2.romance;
