@@ -9,8 +9,8 @@ void Guardar_datos(char nombre[], param array[], int cant)
 archivo=fopen(nombre, "wt");
 for(i=0;i<cant; i++)
 {
-fprintf(archivo, "%s, %3.3f, %3.3f, %3.3f, %f3.3, %3.3f,", array[i].nombre, array[i].accion, array[i].comedia, array[i].romance, array[i].terror, array[i].ficcion);
-fprintf(archivo, "%3.3f, %3.3f, %3.3f, %3.3f, %3.3f, %s\n", array[i].drama, array[i].historia, array[i].documental, array[i].arte, array[i].animada, array[i].clasf);
+fprintf(archivo, "%s, %f, %f, %f, %f, %f,", array[i].nombre, array[i].accion, array[i].comedia, array[i].romance, array[i].terror, array[i].ficcion);
+fprintf(archivo, "%f, %f, %f, %f, %f, %s\n", array[i].drama, array[i].historia, array[i].documental, array[i].arte, array[i].animada, array[i].clasf);
 }
 fclose(archivo);
 }

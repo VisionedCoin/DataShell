@@ -8,13 +8,34 @@
 #include "algoritmo.h"
 
 
-void entrenar(){
+void entrenar(param usuarios[],param movies[], double matriz[5][30], int numUsuarios, int numMovies){
+    int i,j,x = 0; //i = usuarios, j = movies
+    double error, n = 0.1;
+    do{
+        for(i = 0; i < numUsuarios; i++){
+            for(j = 0; j < numMovies; j++){
+                if(matriz[i][j] != 0){
+                    error = matriz[i][j] - ProductPunto(usuarios[i],movies[j]);
+                    usuarios[i].accion = usuarios[i].accion + (n*error*movies[j].accion);
+                    usuarios[i].comedia = usuarios[i].comedia + (n*error*movies[j].comedia);
+                    usuarios[i].romance = usuarios[i].romance + (n*error*movies[j].romance);
+                    usuarios[i].terror = usuarios[i].terror + (n*error*movies[j].terror);
+                    usuarios[i].ficcion = usuarios[i].ficcion + (n*error*movies[j].ficcion);
+                    usuarios[i].drama = usuarios[i].drama + (n*error*movies[j].drama);
+                    usuarios[i].historia = usuarios[i].historia + (n*error*movies[j].historia);
+                    usuarios[i].documental = usuarios[i].documental + (n*error*movies[j].documental);
+                    usuarios[i].arte = usuarios[i].arte + (n*error*movies[j].arte);
+                    usuarios[i].animada = usuarios[i].animada + (n*error*movies[j].animada);
+                }
+            }
+        }
+        x++;
+    }while(x < 100);
     
-    //aqui va el algoritmo para entrenar al sistema de recomendaciones
     
 }
 
-double ProductPunto(demovie *Peli11, demovie *Peli2)
+double ProductPunto(param Peli1, param Peli2)
 {
     double producto1, producto2, producto3, Final;
     producto1=Peli1.accion*Peli2.accion+Peli1.comedia*Peli2.comedia+Peli1.romance*Peli2.romance;
@@ -25,3 +46,6 @@ double ProductPunto(demovie *Peli11, demovie *Peli2)
     return Final;
     
 }
+
+
+

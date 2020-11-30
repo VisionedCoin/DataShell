@@ -85,7 +85,7 @@ EXTERN int DataShell_leer_arrayofstruct(char nombre[], param array[]);
 */
 
 
-EXTERN void DataShell_leer_matriz(char nombre[], double *matriz[], int fil, int col);
+EXTERN void DataShell_leer_matriz(char nombre[], double matriz[5][30], int fil, int col);
 
 #undef DataShell_IMPORT
 #undef EXTERN

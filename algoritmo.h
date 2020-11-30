@@ -12,11 +12,21 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "DataShell.h"
+
 #ifndef algoritmo_IMPORT
     #define EXTERN
 #else
     #define EXTERN extern
 #endif
+
+
+
+
+
+
+
+
 
 
 /*
@@ -28,8 +38,8 @@
  *@returns
  *
  */
-EXTERN void entrenar();
-EXTERN double ProductPunto(demovie *Peli11, demovie *Peli2);
+EXTERN void entrenar(param usuarios[],param movies[], double matriz[5][30], int numUsuarios, int numMovies);
+EXTERN double ProductPunto(param Peli11, param Peli2);
 
 
 
