@@ -1,12 +1,12 @@
   
 //
-//  DataShell.h
+//  Guardar.h
 //
 //
 //
 
-#ifndef DataShell_h
-#define DataShell_h
+#ifndef Guardar_h
+#define Guardar_h
 
 
 /*
@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "DataShell.h"
 /*
  * Application specific headers required by the following declarations
  * (the implementation will import its specific dependencies):
@@ -27,7 +27,7 @@
 
 /* Set EXTERN macro: */
 
-#ifndef DataShell_IMPORT
+#ifndef Guardar_IMPORT
 #define EXTERN
 #else
 #define EXTERN extern
@@ -35,20 +35,6 @@
 
 /* Types declarations. */
 
-typedef struct demovie{
-char nombre[30];
-double accion;
-double comedia;
-double romance;
-double terror;
-double ficcion;
-double drama;
-double historia;
-double documental;
-double arte;
-double animada;
-char clasf[5];
-}param;
 
 /* Global variables declarations. */
 
@@ -58,21 +44,27 @@ char clasf[5];
 
 /*
  *
- * La funcion DataShell_leer_arrayofstruct lee los datos de un file para guardarlos en un arreglo de estructuras (estatico)
+ * La funcion Guardar_datos sirve para volver a guardar los datos
+ * de las peliculas/usuarios con las caracteristicas actualizadas
+ * hechas por el algoritmo
  *
  * @params
  *      nombre (char []):
  *  nombre del archivo a leer
  *    	array (param []):
  *  arreglo de datos
+ *	cant (int):
+ *  Cantidad de datos que hay
+ *
  * @returns
- *  int (cantidad de datos leido)
+ *  void
 */
 
-EXTERN int DataShell_leer_arrayofstruct(char nombre[], param array[]);
+EXTERN void Guardar_datos(char nombre[], param array[], int cant);
 /*
  *
- * La funcion DataShell_leer_matriz lee la matriz de calificaiones de las peliculas
+ * La funcion Guardar_matriz funciona para meter los datos
+ * actualizados de la calificaciones de las peliculas
  *
  * @params
  *
@@ -80,13 +72,18 @@ EXTERN int DataShell_leer_arrayofstruct(char nombre[], param array[]);
  *  nombre del archivo.
  *    matriz (double *[])
  *  matriz de enteros de calificacion
+ *	fil (int):
+ *  cantidad de filas(usuarios)
+ *	col (int)
+ *  cantidad de columnas de la matiz (peliculas)
+ *
  * @returns
  *  void.
 */
 
 
-EXTERN void DataShell_leer_matriz(char nombre[], double *matriz[], int fil, int col);
+EXTERN void Guardar_matriz(char nombre[], double *matriz[], int fil, int col);
 
-#undef DataShell_IMPORT
+#undef Guardar_IMPORT
 #undef EXTERN
-#endif /* files_h */
+#endif /* Guardar_h */

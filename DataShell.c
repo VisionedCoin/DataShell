@@ -52,7 +52,7 @@ fclose(archivo);
 return i;
 }
 
-void DataShell_leer_matriz(char nombre[], int *matriz[], int fil, int col)
+void DataShell_leer_matriz(char nombre[], double *matriz[], int fil, int col)
 {
         FILE *archivo=NULL;
         int i=0, j=0;
