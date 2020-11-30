@@ -29,7 +29,7 @@
  *
  */
 EXTERN void entrenar();
-EXTERN int ProductPunto(demovie *Peli11, demovie *Peli2);
+EXTERN double ProductPunto(demovie *Peli11, demovie *Peli2);
 
 
 
