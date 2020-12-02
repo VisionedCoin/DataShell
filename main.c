@@ -33,11 +33,12 @@ int main(void){
     entrenar(usuarios, pelis, matriz, numUsuarios, numPelis );
     //Menu:
     do{
-        //system("clear");
+
+        system("clear");
         printf("MENU:\n\t1. Recomendacion de peliculas\n\t2. Peliculas populares\n\t3. Peliculas similares\n\t4. Recomendar amigos\n\t9. Salir\n\n");
         scanf("%d",&opcion);
-	getchar();
-	
+	      getchar();
+      
         switch(opcion)
         {
             case 1:
@@ -67,12 +68,7 @@ int main(void){
         
         
     }while(opcion!=9);
-/*
-for(i=0;i<numUsuarios;i++)
-{
-R=Recomendar_pelicula(usuarios[i], pelis, matriz, numPelis, i);
-printf("A %s le recomendamos %s\n", usuarios[i].nombre, pelis[R].nombre);
-} */
+
    Guardar_datos("DatosUsuarios.csv", usuarios, numUsuarios);
 }
 
