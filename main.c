@@ -11,12 +11,11 @@
 #include "Guardar.h"
 int Recomendar_pelicula(param Usu, param movies[], double matriz[10][30], int numPelis, int nuusu);
 int Recomendar_amigo(param usuarios[], int numUsuarios, int numUs);
+void Pelis_Rank(param movies[],double matriz[10][30], int nummovies, int numusuario, int array[]);
 int main(void){
-    int numPelis, numUsuarios, opcion, op, x, R,numUs;
+    int numPelis, numUsuarios, opcion, op, x, R,numUs, arraype[3];
     double matriz[10][30];
     param usuarios[10],pelis[30];
-    
-    
     numUsuarios = DataShell_leer_arrayofstruct("DatosUsuarios.csv",usuarios);
     numPelis = DataShell_leer_arrayofstruct("DatosPeli.csv",pelis);
     
@@ -48,7 +47,9 @@ int main(void){
 	getchar();
             break;
             case 2:
-
+	Pelis_Rank(pelis,matriz, numPelis, numUsuarios, arraype);
+printf("Las mejores peliculas son:\n%s\n%s\n%s\n", pelis[arraype[0]].nombre,pelis[arraype[1]].nombre,pelis[arraype[2]].nombre);
+getchar();
             break;
             case 3:
 
@@ -109,4 +110,45 @@ int Recomendar_amigo(param usuarios[], int numUsuarios, int numUs)
 
 }
 return es;
+}
+
+void Pelis_Rank(param movies[],double matriz[10][30], int nummovies, int numusuario, int array[])
+{
+int i, j, cant=0;
+double sum=0, prom[30];
+for(i=0;i<nummovies;i++)
+{
+	for(j=0;j<numusuario;j++)
+	{
+		if(matriz[j][i]!=0)
+		{
+		sum=sum+matriz[j][i];
+		cant++;
+		}
+	}
+prom[i]=sum/numusuario;
+sum=0;
+cant=0;
+}
+array[0]=20;
+array[1]=21;
+array[2]=22;
+for(i=0;i<nummovies;i++)
+{
+printf("Promedio de %s es: %f",movies[i].nombre, prom[i]);
+if(prom[i]>prom[array[0]])
+{
+array[2]=array[1];
+array[1]=array[0];
+array[0]=i;
+}
+else if(prom[i]>prom[array[1]])
+{
+array[2]=array[1];
+array[1]=i;
+}
+else if(prom[i]>prom[array[2]])
+array[2]=i;
+}
+
 }
