@@ -11,9 +11,12 @@
 void entrenar(param usuarios[],param movies[], double matriz[5][30], int numUsuarios, int numMovies){
     int i,j,x = 0; //i = usuarios, j = movies
     double error, n = 0.1;
+    FILE * arch;
+    arch = fopen("DatosSalida.csv","w");
         for(i = 0; i < numUsuarios; i++){
             for(j = 0; j < numMovies; j++){
                 if(matriz[i][j] != 0){
+                    x=0;
                     do{
                         error = matriz[i][j] - ProductPunto(usuarios[i],movies[j]);
                         usuarios[i].accion = usuarios[i].accion + (n*error*movies[j].accion);
@@ -27,14 +30,13 @@ void entrenar(param usuarios[],param movies[], double matriz[5][30], int numUsua
                         usuarios[i].arte = usuarios[i].arte + (n*error*movies[j].arte);
                         usuarios[i].animada = usuarios[i].animada + (n*error*movies[j].animada);
                         x++;
-                    }while(x < 100);
-                    printf("%f, ",error);
+                        fprintf(arch, "\n%d, %f", x, error);
+                    }while(x < 1000);
+                    
                 }
-                printf("\n a ");
             }
         }
-     
-    
+    fclose(arch);
     
 }
 
