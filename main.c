@@ -12,8 +12,8 @@
 
 int main(void){
     int numPelis, numUsuarios, opcion;
-    double matriz[5][30];
-    param usuarios[5],pelis[30];
+    double matriz[10][30];
+    param usuarios[10],pelis[30];
     
     
     numUsuarios = DataShell_leer_arrayofstruct("DatosUsuarios.csv",usuarios);

@@ -8,7 +8,7 @@
 #include "algoritmo.h"
 
 
-void entrenar(param usuarios[],param movies[], double matriz[5][30], int numUsuarios, int numMovies){
+void entrenar(param usuarios[],param movies[], double matriz[10][30], int numUsuarios, int numMovies){
     int i,j,x = 0; //i = usuarios, j = movies
     double error, n = 0.1;
     FILE * arch;
