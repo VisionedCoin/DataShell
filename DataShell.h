@@ -34,7 +34,7 @@
 #endif
 
 /* Types declarations. */
-
+//Estructura de nuestras peliculas. 
 typedef struct demovie{
 char nombre[30];
 double accion;
@@ -70,20 +70,24 @@ char clasf[5];
 */
 
 EXTERN int DataShell_leer_arrayofstruct(char nombre[], param array[]);
+
 /*
  *
  * La funcion DataShell_leer_matriz lee la matriz de calificaiones de las peliculas
  *
  * @params
  *
- *    nombre (char []);
+ *    nombre (char [])
  *  nombre del archivo.
  *    matriz (double *[])
  *  matriz de enteros de calificacion
+ *    fil (int)
+ *  Numero de filas de nuestra matriz
+ *    col (int)
+ *  Numero de columnas de nuestra matriz
  * @returns
  *  void.
 */
-
 
 EXTERN void DataShell_leer_matriz(char nombre[], double matriz[5][30], int fil, int col);
 
