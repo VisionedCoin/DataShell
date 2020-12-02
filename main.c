@@ -34,10 +34,10 @@ int main(void){
     entrenar(usuarios, pelis, matriz, numUsuarios, numPelis );
     //Menu:
     do{
-        system(clear);
-        printf(MENU:\n\t1. Recomendacion de peliculas\n\t2. Peliculas populares\n\t3. Peliculas similares\n\t4. Recomendar amigos\n\t9. Salir\n\n);
+        system("clear");
+        printf("MENU:\n\t1. Recomendacion de peliculas\n\t2. Peliculas populares\n\t3. Peliculas similares\n\t4. Recomendar amigos\n\t9. Salir\n\n");
         scanf("%d",&opcion);
-        switch(opcion):
+        switch(opcion)
         {
             case 1:
             
@@ -56,7 +56,7 @@ int main(void){
             
         
         
-    }while(opcion!=9)
+    }while(opcion!=9);
     
 for(i=0;i<numUsuarios;i++)
 {
