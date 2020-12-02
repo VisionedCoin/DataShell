@@ -11,7 +11,7 @@
 #include "Guardar.h"
 int Recomendar_pelicula(param Usu, param movies[], double matriz[10][30], int numPelis, int nuusu);
 int main(void){
-    int numPelis, numUsuarios, opcion;
+    int numPelis, numUsuarios, opcion, x, numUs;
     double matriz[10][30];
     param usuarios[10],pelis[30];
     
@@ -20,6 +20,16 @@ int main(void){
     numPelis = DataShell_leer_arrayofstruct("DatosPeli.csv",pelis);
     
     DataShell_leer_matriz("CalificacionPelis.csv",matriz, numUsuarios, numPelis);
+    
+    for(x = 0; x < numUsuarios; x++){
+        printf("usuario %d: %s\n",x,usuarios[x].nombre );
+    }
+    
+    printf("Cuál usuario es usted: ");
+    scanf("%d",&numUs);
+    getchar();
+    
+    
     
     entrenar(usuarios, pelis, matriz, numUsuarios, numPelis );
     //Menu:
