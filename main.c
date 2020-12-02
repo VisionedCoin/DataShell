@@ -9,7 +9,7 @@
 #include "algoritmo.h"
 #include "DataShell.h"
 #include "Guardar.h"
-
+int Recomendar_pelicula(param Usu, param movies[], double matriz[10][30], int numPelis, int nuusu);
 int main(void){
     int numPelis, numUsuarios, opcion;
     double matriz[10][30];
@@ -48,6 +48,28 @@ int main(void){
         
     }while(opcion!=9)
     
-    Guardar_datos("DatosUsuarios.csv", usuarios, numUsuarios);
+for(i=0;i<numUsuarios;i++)
+{
+R=Recomendar_pelicula(usuarios[i], pelis, matriz, numPelis, i);
+printf("A %s le recomendamos %s", usuarios[i].nombre, pelis[R].nombre);
+} 
+   Guardar_datos("DatosUsuarios.csv", usuarios, numUsuarios);
     
+}
+
+int Recomendar_pelicula(param usu, param movies[], double matriz[5][30], int numpelis, int nuusu)
+{
+	int i, es;
+	double re=-100,Pp; 
+	for(i=0;i<numpelis;i++)
+{
+if(matriz[nuusu][i]==0)
+{
+Pp=ProductPunto(usu, movies[i]);
+if(Pp>re)
+re=Pp;
+es=i;
+}
+}
+return es;
 }
