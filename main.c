@@ -61,15 +61,15 @@ printf("Las mejores peliculas son:\n%s\n%s\n%s\n", pelis[arraype[0]].nombre,peli
 getchar();
             break;
             case 3:
-	printf("Seleccione una pelicula: \n");
-	for(x=0;x<numPelis;x++)
-		printf("%d. %s\n", x, pelis[x].nombre);
-	printf("Opcion: ");
-	scanf("%d", &op);
-	getchar();
-	R=Recomendar_amigo(pelis, numPelis, op);
+   printf("Seleccione una pelicula: \n");
+        for(x=0;x<numPelis;x++)
+                printf("%d. %s\n", x, pelis[x].nombre);
+        printf("Opcion: ");
+        scanf("%d", &op);
+        getchar();
+        R=Recomendar_amigo(pelis, numPelis, op);
         printf("Una pelicula similar es: %s", pelis[R].nombre);
-	getchar();
+        getchar();
             break;
             case 4:
 	R=Recomendar_amigo(usuarios, numUsuarios, numUs);
