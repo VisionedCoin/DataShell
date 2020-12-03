@@ -16,7 +16,7 @@ fclose(archivo);
 }
 
 
-void Guardar_matriz(char nombre[], double *matriz[], int fil, int col)
+void Guardar_matriz(char nombre[], double matriz[10][30], int fil, int col)
 {
 FILE *archivo=NULL;
 int i=0, j=0;

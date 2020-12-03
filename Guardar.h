@@ -81,7 +81,7 @@ EXTERN void Guardar_datos(char nombre[], param array[], int cant);
 */
 
 
-EXTERN void Guardar_matriz(char nombre[], double *matriz[], int fil, int col);
+EXTERN void Guardar_matriz(char nombre[], double matriz[10][30], int fil, int col);
 
 #undef Guardar_IMPORT
 #undef EXTERN
