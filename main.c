@@ -13,7 +13,7 @@ int Recomendar_pelicula(param Usu, param movies[], double matriz[10][30], int nu
 int Recomendar_amigo(param usuarios[], int numUsuarios, int numUs);
 void Pelis_Rank(param movies[],double matriz[10][30], int nummovies, int numusuario, int array[]);
 int main(void){
-    int numPelis, numUsuarios, opcion, op, x, R,numUs, arraype[3];
+    int numPelis, numUsuarios, opcion, op, x, R,numUs, cali, arraype[3];
     double matriz[10][30];
     param usuarios[10],pelis[30];
     numUsuarios = DataShell_leer_arrayofstruct("DatosUsuarios.csv",usuarios);
@@ -41,9 +41,18 @@ int main(void){
         switch(opcion)
         {
             case 1:
+	R=0;
 	R=Recomendar_pelicula(usuarios[numUs], pelis, matriz, numPelis, numUs);
 	printf("A %s le recomendamos %s\n", usuarios[numUs].nombre, pelis[R].nombre);
-	//printf("¿Quieres verla? 1. Si 2. No: ");
+	printf("¿Quieres verla? 1. Si 2. No: ");
+	scanf("%d", &op);
+	if(op==1)
+{
+	printf("Ponle calificacion: ");
+	scanf("%d", &cali);
+	matriz[numUs][R]=cali;
+	entrenar(usuarios, pelis, matriz, numUsuarios, numPelis );
+}
 	getchar();
             break;
             case 2:
@@ -79,6 +88,9 @@ getchar();
     }while(opcion!=9);
 
    Guardar_datos("DatosUsuarios.csv", usuarios, numUsuarios);
+	Guardar_matriz("CalificacionPelis.csv", matriz,numUsuarios, numPelis);
+
+
 }
 
 int Recomendar_pelicula(param usu, param movies[], double matriz[10][30], int numpelis, int nuusu)
